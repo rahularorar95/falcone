@@ -3,30 +3,19 @@ import Vehicle from "../Vehicle/Vehicle"
 import "./VehicleList.css"
 
 export class VehicleList extends Component {
-    state = [
-        {
-            name: "Space Pod",
-            total_no: 2,
-            max_distance: 200,
-            speed: 2
-        },
-        {
-            name: "Space rocket",
-            total_no: 1,
-            max_distance: 300,
-            speed: 4
-        }
-    ]
     render() {
         return (
             <div className='ui inverted segment vehicle-list'>
-                <div class='ui inverted large horizontal divided list'>
-                    {this.state.map(vehicle => (
+                <div className='ui inverted large horizontal divided list'>
+                    {this.props.vehicles.map(vehicle => (
                         <Vehicle
+                            id={vehicle.id}
                             name={vehicle.name}
-                            units={vehicle.total_no}
+                            total_no={vehicle.total_no}
                             distance={vehicle.max_distance}
                             speed={vehicle.speed}
+                            empty={vehicle.empty}
+                            onDropVehicle={this.props.onDropVehicle}
                         />
                     ))}
                 </div>
