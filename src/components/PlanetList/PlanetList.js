@@ -1,25 +1,26 @@
 import React, { Component } from "react"
+import Planet from "../Planet/Planet"
 
 export class PlanetList extends Component {
+    state = [
+        {
+            name: "Donlon",
+            distance: 100
+        },
+        {
+            name: "Enchai",
+            distance: 200
+        }
+    ]
     render() {
         return (
             <div className='ui inverted segment'>
-                    <div class='ui inverted large horizontal divided list'>
-                        <div class='item'>
-                            <img
-                                className='ui tiny avatar image'
-                                src='https://semantic-ui.com//images/avatar2/large/matthew.png'
-                                alt=''
-                            />
-                            <div className="description">
-                                <div className="header">Planet 1</div>
-                                <div>
-                                Distance - 100 Megamiles
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div className='ui inverted large horizontal divided list'>
+                    {this.state.map(planet => (
+                        <Planet name={planet.name} distance={planet.distance} />
+                    ))}
                 </div>
+            </div>
         )
     }
 }
