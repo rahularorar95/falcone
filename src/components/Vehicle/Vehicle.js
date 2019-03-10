@@ -40,7 +40,7 @@ export class Vehicle extends Component {
                             this.onDragStart(e, {
                                 name: this.props.name,
                                 total_no: 1,
-                                distance: this.props.distance,
+                                max_distance: this.props.max_distance,
                                 speed: this.props.speed
                             })
                         }
@@ -52,7 +52,7 @@ export class Vehicle extends Component {
                         <div className='header'>
                             {this.props.name} X {this.props.total_no}
                         </div>
-                            Max Distance = {this.props.distance} megamiles
+                            Max Distance = {this.props.max_distance} megamiles
                             <br/>
                         Speed = {this.props.speed} megamiles/hour
                     </div>

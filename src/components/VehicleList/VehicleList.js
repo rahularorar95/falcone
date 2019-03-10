@@ -12,7 +12,7 @@ export class VehicleList extends Component {
                             id={vehicle.id}
                             name={vehicle.name}
                             total_no={vehicle.total_no}
-                            distance={vehicle.max_distance}
+                            max_distance={vehicle.max_distance}
                             speed={vehicle.speed}
                             empty={vehicle.empty}
                             onDropVehicle={this.props.onDropVehicle}

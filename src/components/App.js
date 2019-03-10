@@ -61,6 +61,13 @@ class App extends Component {
         if (e.target.id && e.target.id.includes("Planet")) {
             let planets = [...this.state.planets]
 
+            let targetIndex = parseInt(e.target.id.substr(-1)) - 1
+            let vehicle  = this.state.baseVehicles[targetIndex];
+
+            if(!vehicle.empty && data.distance > vehicle.max_distance){
+                alert("Vehicle Max Distance is less than Planet's Distance")
+                return
+            }
             planets = planets.filter(planet => {
                 return planet.name !== data.name
             })
@@ -83,8 +90,18 @@ class App extends Component {
         let data = e.dataTransfer.getData("vehicle")
         if (!data) return
         data = JSON.parse(data)
-        if (e.target.id && e.target.id.includes("Vehicle")) {
+
+        if (e.target.id && e.target.id.includes("Vehicle")) {            
             let vehicles = [...this.state.vehicles]
+            
+            let targetIndex = parseInt(e.target.id.substr(-1)) - 1
+            let planet  = this.state.basePlanets[targetIndex];
+
+            if(!planet.empty && data.max_distance < planet.distance){
+                alert("Vehicle Max Distance is less than Planet's Distance")
+                return
+            }
+
             let index = vehicles.findIndex(
                 vehicle => vehicle.name === data.name
             )
@@ -96,7 +113,6 @@ class App extends Component {
 
             let baseVehicles = [...this.state.baseVehicles]
             index = baseVehicles.findIndex(item => item.id === e.target.id)
-
             baseVehicles.splice(index, 1, data)
             this.setState({ vehicles, baseVehicles }, () => {
                 this.calculateTime(index)
