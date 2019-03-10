@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import history from "../../history"
+import './Result.css'
 export class Result extends Component {
     navigate = () => {
         this.props.resetState()
@@ -20,19 +21,23 @@ export class Result extends Component {
                     <br />
                     Time Taken : {this.props.timeTaken}
                     <br />
-                    Planet Found: {this.props.resultStatus.planet_name}
+                    Planet Found: <u>{this.props.resultStatus.planet_name}</u>
                 </div>
             )
         }
         return (
-            <div className='ui container'>
-                {result}
-                <button
-                    onClick={this.navigate}
-                    className='ui massive black button'
-                >
-                    Start Again
-                </button>
+            <div className='ui inverted segment' style={{"height":"100vh"}}>
+                <div className="content">
+                <div className="content-description">
+                    {result}
+                    </div>
+                    <button
+                        onClick={this.navigate}
+                        className='ui massive button'
+                    >
+                        Start Again
+                    </button>
+                </div>
             </div>
         )
     }

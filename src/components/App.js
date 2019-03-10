@@ -8,6 +8,8 @@ import BaseCamp from "./BaseCamp/BaseCamp"
 import axios from "../apis/index"
 import Result from "./Result/Result"
 import history from "../history"
+import "./App.css"
+
 class App extends Component {
     state = {
         planets: [],
@@ -30,7 +32,8 @@ class App extends Component {
 
         timeTaken: 0,
         maximum: 4,
-        resultStatus: null
+        resultStatus: null,
+        loader: false
     }
 
     componentDidMount() {
@@ -144,12 +147,15 @@ class App extends Component {
 
         let vehicle_names = this.state.baseVehicles.map(vehicle => vehicle.name)
 
-        if(planet_names.includes(undefined) || vehicle_names.includes(undefined)){
+        if (
+            planet_names.includes(undefined) ||
+            vehicle_names.includes(undefined)
+        ) {
             alert("Please select all Planets and Vehicles !")
             return
         }
 
-
+        this.setState({ loader: true })
         let token = ""
         axios
             .post("/token", "", {
@@ -175,9 +181,11 @@ class App extends Component {
                     .then(res => {
                         if (res.data.status) {
                             this.setState({ resultStatus: res.data }, () => {
+                                this.setState({ loader: false })
                                 history.push("/result")
                             })
                         } else {
+                            this.setState({ loader: false })
                             alert("Token not initialized !")
                         }
                     })
@@ -207,6 +215,17 @@ class App extends Component {
                             component={() => {
                                 return (
                                     <>
+                                        {this.state.loader ? (
+                                            <div className='loader'>
+                                                <img
+                                                    src='/assets/loader.gif'
+                                                    alt='loader'
+                                                />
+                                            </div>
+                                        ) : (
+                                            ""
+                                        )}
+
                                         <PlanetList
                                             planets={this.state.planets}
                                         />

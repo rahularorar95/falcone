@@ -27,7 +27,7 @@ export class Vehicle extends Component {
                             this.onDrop(e)
                         }}
                     >
-                        <i className='grey small icon plus' />
+                        <i className='small icon plus' />
                     </div>
                 </>
             )
@@ -45,24 +45,23 @@ export class Vehicle extends Component {
                             })
                         }
                         className='ui tiny avatar image'
-                        src='https://semantic-ui.com//images/avatar2/large/matthew.png'
+                        src={`/assets/${this.props.name.toLowerCase()}.png`}
                         alt=''
                     />
-                    <div className='description'>
+                    <div className='item-content'>
                         <div className='header'>
                             {this.props.name} X {this.props.total_no}
                         </div>
-                        <div>
                             Max Distance = {this.props.distance} megamiles
-                        </div>
-                        <div>Speed = {this.props.speed} megamiles/hour</div>
+                            <br/>
+                        Speed = {this.props.speed} megamiles/hour
                     </div>
                 </>
             )
         }
         return (
             <>
-                <div className='item'>{item}</div>
+                <div className={this.props.empty?'item empty-list' : 'item'}>{item}</div>
             </>
         )
     }

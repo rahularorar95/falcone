@@ -26,7 +26,7 @@ export class Planet extends Component {
                             this.onDrop(e)
                         }}
                     >
-                        <i className='grey small icon plus' />
+                        <i className='small icon plus' />
                     </div>
                 </>
             )
@@ -42,19 +42,21 @@ export class Planet extends Component {
                             })
                         }
                         className='ui tiny avatar image'
-                        src='https://semantic-ui.com//images/avatar2/large/matthew.png'
+                        src={`/assets/${this.props.name.toLowerCase()}.png`}
                         alt=''
                     />
-                    <div className='description'>
+                    <br/>
+                    <div className='item-content'>
                         <div className='header'>{this.props.name}</div>
-                        <div>Distance - {this.props.distance} megamiles</div>
+                        Distance - {this.props.distance} megamiles
                     </div>
                 </>
             )
         }
+
         return (
             <>
-                <div className='item'>{item}</div>
+                <div className={this.props.empty?'item empty-list' : 'item'}>{item}</div>
             </>
         )
     }

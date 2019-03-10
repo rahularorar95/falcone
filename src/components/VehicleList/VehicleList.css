@@ -4,3 +4,23 @@
    bottom: 5%;
    width: 100%;
 }
+.custom-segment {
+    display: flex;
+    justify-content: center
+}
+
+.custom-list {
+    display: flex;
+    justify-content: center;
+    min-width: 50%;
+}
+
+.custom-list .item{
+    width: 25%;
+    text-align: center
+}
+
+.custom-list .empty-list {
+    width: 25% !important;
+    text-align: center
+}

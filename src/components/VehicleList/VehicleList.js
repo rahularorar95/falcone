@@ -5,8 +5,8 @@ import "./VehicleList.css"
 export class VehicleList extends Component {
     render() {
         return (
-            <div className='ui inverted segment vehicle-list'>
-                <div className='ui inverted large horizontal divided list'>
+            <div className='ui inverted segment vehicle-list custom-segment'>
+                <div className='ui inverted large horizontal divided list custom-list'>
                     {this.props.vehicles.map(vehicle => (
                         <Vehicle
                             id={vehicle.id}
