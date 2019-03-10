@@ -26,7 +26,7 @@ export class Result extends Component {
             )
         }
         return (
-            <div className='ui inverted segment' style={{"height":"100vh"}}>
+            <div className='ui inverted segment' style={{"height":"90vh"}}>
                 <div className="content">
                 <div className="content-description">
                     {result}
