@@ -1,5 +1,5 @@
-# Finding Falcone (https://www.geektrust.in/coding-problem/frontend/space)
-## Available Scripts
+# Finding Falcone 
+(https://www.geektrust.in/coding-problem/frontend/space)
 
 ## Coding Problem
 
@@ -14,6 +14,7 @@ Problem is to help King Shan find Al Falcone.
   Drag and drop any 4 vehicles to send on these planets.<br/>
   Click on GO to start the misson.
 ```
+## Available Scripts
 
 In the project directory, you can run:
 ### `npm start`
