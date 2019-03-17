@@ -15,11 +15,11 @@ export class BaseCamp extends Component {
                     <div className="time-taken">
                         <button
                             onClick={() => this.props.fetchResult()}
-                            className='circular ui negative massive button'
+                            className='circular ui negative small button'
                         >GO
                         </button>
 
-                        <a className='ui huge label black'>
+                        <a className='ui large label black'>
                             <i className='clock icon' /> Time Taken :{" "}
                             {this.props.time}
                         </a>

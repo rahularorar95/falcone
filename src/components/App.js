@@ -209,11 +209,11 @@ class App extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="App">
                 <Header resetState={this.resetState} />
 
                 <Router history={history}>
-                    <div>
+                    <div className="App-Section">
                         <Route
                             path='/result'
                             exact

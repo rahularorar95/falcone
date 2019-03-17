@@ -7,7 +7,7 @@ export class VehicleList extends Component {
         return (
             <div className='ui inverted segment vehicle-list custom-segment'>
                 <div className='ui inverted large horizontal divided list custom-list'>
-                    {this.props.vehicles.map(vehicle => (
+                    {this.props.vehicles.map((vehicle, index) => (
                         <Vehicle
                             id={vehicle.id}
                             name={vehicle.name}
@@ -16,6 +16,7 @@ export class VehicleList extends Component {
                             speed={vehicle.speed}
                             empty={vehicle.empty}
                             onDropVehicle={this.props.onDropVehicle}
+                            key={index}
                         />
                     ))}
                 </div>
